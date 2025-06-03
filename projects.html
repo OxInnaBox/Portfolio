@@ -1,0 +1,29 @@
+<script src="node_modules/gridstack/dist/gridstack-all.js"></script>
+<link href="node_modules/gridstack/dist/gridstack.min.css" rel="stylesheet"/>
+<style type="text/css">
+  .grid-stack { background: #FAFAD2; }
+  .grid-stack-item-content {
+    font-size: 100;
+    border-radius: 50px;
+}
+  #project1 {
+    background-image: url("media/ezra\ assets.png");
+    background-size: cover;
+  }
+  .ui-resizable-handle {
+    zoom: 5;
+    background-color: white;
+    border-radius: 20px;
+  }
+</style>
+
+<div class="grid-stack">
+    <div class="grid-stack-item" gs-w="2" gs-h="2">
+        <div class="grid-stack-item-content" id="project1"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  var grid = GridStack.init();
+  grid.load(items);
+</script>
