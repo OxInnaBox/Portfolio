@@ -458,7 +458,6 @@
     let openmenu = false
 
     function openPopup(projectnumber) {
-      document.getElementById("popup").classList.add("open");
 
       if (projectnumber == 1) {
         title.innerHTML="Project Popup 1";
@@ -515,6 +514,7 @@
         gallery6.src="media/projects/project5/artwork.png";
         description.innerHTML="Project 5 description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       }
+      document.getElementById("popup").classList.add("open");
     }
     function closePopup() {
       document.getElementById("popup").classList.remove("open");
