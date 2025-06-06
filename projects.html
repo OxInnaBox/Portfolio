@@ -1,29 +1,483 @@
-<script src="node_modules/gridstack/dist/gridstack-all.js"></script>
-<link href="node_modules/gridstack/dist/gridstack.min.css" rel="stylesheet"/>
-<style type="text/css">
-  .grid-stack { background: #FAFAD2; }
-  .grid-stack-item-content {
-    font-size: 100;
-    border-radius: 50px;
-}
-  #project1 {
-    background-image: url("media/ezra\ assets.png");
-    background-size: cover;
-  }
-  .ui-resizable-handle {
-    zoom: 5;
-    background-color: white;
-    border-radius: 20px;
-  }
-</style>
+<html>
 
-<div class="grid-stack">
-    <div class="grid-stack-item" gs-w="2" gs-h="2">
-        <div class="grid-stack-item-content" id="project1"></div>
-    </div>
-</div>
+  <head>
 
-<script type="text/javascript">
-  var grid = GridStack.init();
-  grid.load(items);
-</script>
+    <script src="node_modules/gridstack/dist/gridstack-all.js"></script>
+    <link href="node_modules/gridstack/dist/gridstack.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+    <title>Project Gallery</title>
+    <style type="text/css">
+
+      /*Gridstack*/
+      @media {
+        .grid-stack-item-content {
+          border-radius: 20px;
+          background-color: rgb(122, 122, 122);
+          background-size: cover;
+          background-position: center;
+        }
+        .ui-resizable-handle {
+          background-color: rgb(255, 255, 255);
+          border-radius: 20px;
+        }
+        .seemore {
+          left: 15;
+          bottom: 15;
+          position: absolute;
+          background-color: black;
+          border-radius: 8px;
+          padding: 5px;
+        }
+        .seemore:hover {
+          opacity: 80%;
+        }
+        .seemoretext {
+          font-family: "Playpen Sans";
+          font-size: 12px;
+          color: white;
+          text-decoration: none;
+          background: none;
+          border: none;
+          padding: 0;
+        }
+        .seemoretext:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+
+      /*Grid Items*/
+      @media {
+        #project1 {
+          background-image: url("media/projects/project1/thumbnail.png");
+        }
+        #project2 {
+          background-image: url("media/projects/project2/thumbnail.png");
+        }
+        #project3 {
+          background-image: url("media/projects/project3/thumbnail.png");
+        }
+        #project4 {
+          background-image: url("media/projects/project4/thumbnail.png");
+        }
+        #project5 {
+          background-image: url("media/projects/project5/thumbnail.png");
+        }
+      }
+
+      /*Big divs*/
+      @media {
+        body {
+          background-color: #f3f3f3;
+          margin: 0;
+        }
+        header {
+          background-color: rgb(46, 46, 46);
+          padding: 25px;
+          margin-bottom: 40px;
+        }
+        .mainmargin {
+          margin-left: 10%;
+          margin-right: 10%;
+        }
+        footer {
+          background-color: rgb(46, 46, 46);
+          padding: 25px;
+          margin-top: 40px;
+        }
+      }
+
+      /*Header*/
+      @media {
+        .logodiv {
+          display: flex;
+          justify-content: space-around;
+          margin-bottom: 20px;
+        }
+        .logo {
+          width: 8%;
+        }
+        .logo:hover {
+          cursor: pointer;
+        }
+        .navdiv {
+          display: flex;
+          justify-content: space-between;
+          padding-left: 30%;
+          padding-right: 30%;
+        }
+        .navtext {
+          font-family: "Playpen Sans";
+          font-size: 18px;
+          color: rgb(146, 146, 146);
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
+          color: white;
+        }
+      }
+
+      /*Footer*/
+      @media {
+        .footerflex  {
+          display: flex;
+          justify-content: space-between;
+        }
+        .socialsdiv {
+          display: flex;
+          justify-content: space-between;
+          width: 20%;
+        }
+        .socials {
+          height: 30px;
+          width: 30px;
+        }
+        .footerlogo {
+          width: 10%;
+        }
+      }
+
+      /*Popup*/
+      @media {
+        .popup {
+          opacity: 0;
+          background-color: rgba(0, 0, 0, .7);
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          transition: all 0.3s ease-in-out;
+          z-index: -1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow-y: scroll;
+        }
+        .popup.open {
+          opacity: 100;
+          z-index: 999;
+        }
+        .innerpopup {
+          background-color: white;
+          border-radius: 10px;
+          padding: 25px;
+          width: 900px;
+          margin-top: 290px;
+          margin-bottom: 50px;
+        }
+        .close {
+          background-color: black;
+          border-radius: 8px;
+          padding: 5px;
+          width: 40px;
+          display: flex;
+          justify-content: center;
+        }
+        .closetext {
+          font-family: "Playpen Sans";
+          font-size: 15px;
+          color: white;
+          text-decoration: none;
+          background: none;
+          border: none;
+          padding: 0;
+        }
+        .closetext:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+        .pophead {
+          display: flex;
+          justify-content: space-between;
+        }
+        #title {
+          font-family: "Playpen Sans";
+          font-size: 20px;
+          font-weight: bolder;
+          margin: 0;
+        }
+        .popflex {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 20px;
+        }
+        #description {
+          font-family: "Playpen Sans";
+          font-size: 15px;
+          width: 45%;
+        }
+        .popgrid {
+          display: grid;
+          column-gap: 10px;
+          row-gap: 10px;
+          width: 50%;
+          column-count: 3;
+          grid-template-columns: auto auto auto;
+        }
+        #popmainart {
+          width: 100%;
+          margin-top: 20px;
+          border-radius: 10px;
+        }
+        .popgallery {
+          width: 100%;
+          border-radius: 10px;
+        }
+      }
+
+      @media only screen and (max-width: 800px) {
+        .footerlogo {
+          width: 50%;
+          margin-bottom: 20px;
+        }
+        .socialsdiv {
+          width: 70%;
+        }
+        .footerflex {
+          display: block;
+        }
+        .socials {
+          height: 40px;
+          width: 40px;
+        }
+        .popgrid {
+          grid-template-columns: auto auto;
+          width: 100%;
+          margin-top: 20px;
+        }
+        #description {
+          width: 100%;
+        }
+        .popflex {
+          display: block;
+        }
+        .navdiv {
+          padding-left: 0%;
+          padding-right: 0%;
+        }
+        #pcnav {
+          display: none;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .socials {
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    
+    <header>
+
+      <div id="pcnav">
+
+        <div class="logodiv"><img src="media/main/logowhite.png" alt="logo" class="logo" onclick="window.location.href = 'index.html'"></div>
+
+        <div class="navdiv">
+          
+          <a href="index.html" class="navtext">Home</a>
+          <a href="projects.html" class="navtext">Gallery</a>
+          <a href="projects.html" class="navtext">About Me</a>
+
+        </div>
+
+      </div>
+
+      <div id="mobilenav">
+
+        <div class="navdiv"></div>
+
+      </div>
+
+    </header>
+
+    <main>
+      
+      <div class="mainmargin">
+
+        <div class="grid-stack">
+
+          <div class="grid-stack-item" gs-w="3" gs-h="3">
+            <div class="grid-stack-item-content" id="project1"><div class="seemore"><button class="seemoretext" onclick="openPopup(1)">See More</button></div></div>
+          </div>
+
+          <div class="grid-stack-item" gs-w="3" gs-h="3">
+            <div class="grid-stack-item-content" id="project2"><div class="seemore"><button class="seemoretext" onclick="openPopup(2)">See More</button></div></div>
+          </div>
+
+          <div class="grid-stack-item" gs-w="3" gs-h="3">
+            <div class="grid-stack-item-content" id="project3"><div class="seemore"><button class="seemoretext" onclick="openPopup(3)">See More</button></div></div>
+          </div>
+
+          <div class="grid-stack-item" gs-w="3" gs-h="3">
+            <div class="grid-stack-item-content" id="project4"><div class="seemore"><button class="seemoretext" onclick="openPopup(4)">See More</button></div></div>
+          </div>
+
+          <div class="grid-stack-item" gs-w="3" gs-h="3">
+            <div class="grid-stack-item-content" id="project5"><div class="seemore"><button class="seemoretext" onclick="openPopup(5)">See More</button></div></div>
+          </div>
+          
+        </div>
+
+      </div>
+
+      <div id="popup" class="popup">
+        
+        <div class="innerpopup">
+
+
+          <div class="pophead">
+
+            <p id="title">Project Popup 1</p>
+
+            <div class="close"><button class="closetext" onclick="closePopup()">Close</button></div>
+
+          </div>
+
+          <div class="popcontent">
+
+            <img src="media/projects/project1/mainart.png" alt="mainart" id="popmainart">
+
+            <div class="popflex">
+
+              <div id="description">Project 1 description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+
+              <div class="popgrid">
+                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery1">
+                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery2">
+                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery3">
+                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery4">
+                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery5">
+                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery6">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+    <footer>
+
+      <div class="footerflex">
+        
+        <img src="media/main/logowhite.png" alt="logo" class="footerlogo">
+
+        <div class="socialsdiv">
+          <img src="media/socials/artstation.png" alt="artstation" class="socials">
+          <img src="media/socials/instagram.png" alt="instagram" class="socials">
+          <img src="media/socials/youtube.png" alt="youtube" class="socials">
+          <img src="media/socials/linkedin.png" alt="linkedin" class="socials">
+          <img src="media/socials/twitter.png" alt="twitter" class="socials">
+        </div>
+
+      </div>
+
+    </footer>
+
+  </body>
+
+  <script type="text/javascript">
+
+    const title = document.getElementById("title");
+    const mainart = document.getElementById("popmainart");
+    const description = document.getElementById("description");
+    const gallery1 = document.getElementById("gallery1");
+    const gallery2 = document.getElementById("gallery2");
+    const gallery3 = document.getElementById("gallery3");
+    const gallery4 = document.getElementById("gallery4");
+    const gallery5 = document.getElementById("gallery5");
+    const gallery6 = document.getElementById("gallery6");
+
+    var grid = GridStack.init({
+      column: 6,
+      cellHeight: 100,
+      columnOpts: {
+        columnWidth: 100,
+        columnMax: 12,
+        layout: 'none',
+      },
+    })
+    function openPopup(projectnumber) {
+      document.getElementById("popup").classList.add("open");
+
+      if (projectnumber == 1) {
+        title.innerHTML="Project Popup 1";
+        mainart.src="media/projects/project1/mainart.png";
+        gallery1.src="media/projects/project1/artwork.png";
+        gallery2.src="media/projects/project1/artwork.png";
+        gallery3.src="media/projects/project1/artwork.png";
+        gallery4.src="media/projects/project1/artwork.png";
+        gallery5.src="media/projects/project1/artwork.png";
+        gallery6.src="media/projects/project1/artwork.png";
+        description.innerHTML="Project 1 description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+      if (projectnumber == 2) {
+        title.innerHTML="Project Popup 2";
+        mainart.src="media/projects/project2/mainart.png";
+        gallery1.src="media/projects/project2/artwork.png";
+        gallery2.src="media/projects/project2/artwork.png";
+        gallery3.src="media/projects/project2/artwork.png";
+        gallery4.src="media/projects/project2/artwork.png";
+        gallery5.src="media/projects/project2/artwork.png";
+        gallery6.src="media/projects/project2/artwork.png";
+        description.innerHTML="Project 2 description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+      if (projectnumber == 3) {
+        title.innerHTML="Project Popup 3";
+        mainart.src="media/projects/project3/mainart.png";
+        gallery1.src="media/projects/project3/artwork.png";
+        gallery2.src="media/projects/project3/artwork.png";
+        gallery3.src="media/projects/project3/artwork.png";
+        gallery4.src="media/projects/project3/artwork.png";
+        gallery5.src="media/projects/project3/artwork.png";
+        gallery6.src="media/projects/project3/artwork.png";
+        description.innerHTML="Project 3 description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+      if (projectnumber == 4) {
+        title.innerHTML="Project Popup 4";
+        mainart.src="media/projects/project4/mainart.png";
+        gallery1.src="media/projects/project4/artwork.png";
+        gallery2.src="media/projects/project4/artwork.png";
+        gallery3.src="media/projects/project4/artwork.png";
+        gallery4.src="media/projects/project4/artwork.png";
+        gallery5.src="media/projects/project4/artwork.png";
+        gallery6.src="media/projects/project4/artwork.png";
+        description.innerHTML="Project 4 description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+      if (projectnumber == 5) {
+        title.innerHTML="Project Popup 5";
+        mainart.src="media/projects/project5/mainart.png";
+        gallery1.src="media/projects/project5/artwork.png";
+        gallery2.src="media/projects/project5/artwork.png";
+        gallery3.src="media/projects/project5/artwork.png";
+        gallery4.src="media/projects/project5/artwork.png";
+        gallery5.src="media/projects/project5/artwork.png";
+        gallery6.src="media/projects/project5/artwork.png";
+        description.innerHTML="Project 5 description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }
+    }
+    function closePopup() {
+      document.getElementById("popup").classList.remove("open");
+    }
+    
+
+
+  </script>
+
+</html>
+
