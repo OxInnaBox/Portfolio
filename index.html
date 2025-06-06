@@ -12,14 +12,18 @@
         /*Big divs*/
         @media {
             body {
-                background-color: #f3f3f3;
+                background-color: rgb(104, 104, 104);
+                background-image: url("media/main/portrait.png");
+                background-size: cover;
+                background-position: center;
+                background-blend-mode: multiply;
                 margin: 0;
             }
             header {
-                background-color: black;
+                background-color: rgb(46, 46, 46);
                 padding: 25px;
                 margin-bottom: 40px;
-                opacity: 50%;
+                opacity: 70%;
             }
             .mainmargin {
                 margin-left: 10%;
@@ -29,7 +33,20 @@
                 background-color: rgb(46, 46, 46);
                 padding: 25px;
                 margin-top: 40px;
-                }
+            }
+            .indexmain {
+                margin-left: 10%;
+                margin-right: 10%;
+                height: 500px;
+                padding: 370px 0px;
+            }
+            .nameplate {
+                font-family: "Playpen Sans";
+                font-size: 40px;
+                font-weight: bolder;
+                color: white;
+                text-align: center;
+            }
         }
 
         /*Header*/
@@ -130,10 +147,13 @@
             }
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 500px) {
             .socials {
                 height: 30px;
                 width: 30px;
+            }
+            body {
+                background-position-y: -100px;
             }
         }
 
@@ -153,7 +173,7 @@
             
                 <a href="index.html" class="navtext">Home</a>
                 <a href="projects.html" class="navtext">Gallery</a>
-                <a href="projects.html" class="navtext">About Me</a>
+                <a href="aboutme.html" class="navtext">About Me</a>
 
             </div>
 
@@ -175,7 +195,7 @@
 
                     <a href="index.html" class="navtext">Home</a>
                     <a href="projects.html" class="navtext">Gallery</a>
-                    <a href="projects.html" class="navtext">About Me</a>
+                    <a href="aboutme.html" class="navtext">About Me</a>
 
                 </div>
                 
@@ -187,7 +207,11 @@
 
     <main>
       
-      
+        <div class="indexmain">
+
+            <div class="nameplate">Alex Nogueira</div>
+
+        </div>
 
     </main>
 

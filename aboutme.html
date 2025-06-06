@@ -1,0 +1,272 @@
+<html>
+
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+    <title>Home Page</title>
+    <style type="text/css">
+
+        /*Big divs*/
+        @media {
+            body {
+                background-color: #f3f3f3;
+                margin: 0;
+            }
+            header {
+                background-color: rgb(46, 46, 46);
+                padding: 25px;
+                margin-bottom: 40px;
+            }
+            footer {
+                background-color: rgb(46, 46, 46);
+                padding: 25px;
+                margin-top: 40px;
+                }
+        }
+
+        /*Header*/
+        @media {
+            .logodiv {
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 20px;
+            }
+            .logo {
+                width: 8%;
+            }
+            .logo:hover {
+                cursor: pointer;
+            }
+            .navdiv {
+                display: flex;
+                justify-content: space-between;
+                padding-left: 30%;
+                padding-right: 30%;
+            }
+            .navtext {
+                font-family: "Playpen Sans";
+                font-size: 18px;
+                color: rgb(146, 146, 146);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: white;
+            }
+            #mobilenav {
+                display: none;
+            }
+        }
+
+        /*Footer*/
+        @media {
+            .footerflex  {
+                display: flex;
+                justify-content: space-between;
+            }
+            .socialsdiv {
+                display: flex;
+                justify-content: space-between;
+                width: 20%;
+            }
+            .socials {
+                height: 30px;
+                width: 30px;
+            }
+            .footerlogo {
+                width: 10%;
+            }
+        }
+
+        /*About Me*/
+        @media {
+            .portrait {
+                width: 40%;
+                border-radius: 20px;
+            }
+            .aboutmeflex {
+                display: flex;
+                justify-content: space-between;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+            .aboutmetext {
+                font-family: "Playpen Sans";
+                font-size: 20px;
+                width: 50%;
+            }
+        }
+
+        /*Mobile Nav*/
+        @media {
+            .mobilelogo {
+                width: 20%;
+            }
+            #menuicon {
+                width: 10%;
+            }
+            .mobilemenu {
+                display: none;
+            }
+            .mobilemenu.open {
+                display: block;
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .footerlogo {
+                width: 30%;
+                margin-bottom: 20px;
+            }
+            .socialsdiv {
+                width: 70%;
+            }
+            .footerflex {
+                display: block;
+            }
+            .socials {
+                height: 40px;
+                width: 40px;
+            }
+            .navdiv {
+                padding-left: 0%;
+                padding-right: 0%;
+            }
+            #pcnav {
+                display: none;
+            }
+            #mobilenav {
+                display: block;
+            }
+            .aboutmeflex {
+                display: block;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            .portrait {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .aboutmetext {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .socials {
+                height: 30px;
+                width: 30px;
+            }
+        }
+
+    </style>
+
+  </head>
+
+  <body>
+    
+    <header>
+
+        <div id="pcnav">
+
+            <div class="logodiv"><img src="media/main/logowhite.png" alt="logo" class="logo" onclick="window.location.href = 'index.html'"></div>
+
+            <div class="navdiv">
+            
+                <a href="index.html" class="navtext">Home</a>
+                <a href="projects.html" class="navtext">Gallery</a>
+                <a href="aboutme.html" class="navtext">About Me</a>
+
+            </div>
+
+        </div>
+
+        <div id="mobilenav">
+
+            <div class="navdiv">
+
+                <img src="media/main/logowhite.png" alt="logo" class="mobilelogo">
+
+                <img src="media/main/burger.png" alt="menu" id="menuicon" onclick="toggleMenu()">
+
+            </div>
+
+            <div id="mobilemenu" class="mobilemenu">
+
+                <div class="navdiv">
+
+                    <a href="index.html" class="navtext">Home</a>
+                    <a href="projects.html" class="navtext">Gallery</a>
+                    <a href="aboutme.html" class="navtext">About Me</a>
+
+                </div>
+                
+            </div>
+        
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="aboutmeflex">
+
+            <img src="media/main/portrait.png" alt="portrait" class="portrait">
+
+            <div class="aboutmetext">
+                About me text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                About me text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                About me text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+
+        </div>
+      
+
+    </main>
+
+    <footer>
+
+        <div class="footerflex">
+        
+            <img src="media/main/logowhite.png" alt="logo" class="footerlogo">
+
+            <div class="socialsdiv">
+                <img src="media/socials/artstation.png" alt="artstation" class="socials">
+                <img src="media/socials/instagram.png" alt="instagram" class="socials">
+                <img src="media/socials/youtube.png" alt="youtube" class="socials">
+                <img src="media/socials/linkedin.png" alt="linkedin" class="socials">
+                <img src="media/socials/twitter.png" alt="twitter" class="socials">
+            </div>
+
+        </div>
+
+    </footer>
+
+  </body>
+
+  <script type="text/javascript">
+
+    let openmenu = false;
+
+    function toggleMenu() {
+
+        if (openmenu) {
+            openmenu = false;
+            document.getElementById("mobilemenu").classList.remove("open");
+            document.getElementById("menuicon").src="media/main/burger.png";
+        }
+        else {
+            openmenu = true;
+            document.getElementById("mobilemenu").classList.add("open");
+            document.getElementById("menuicon").src="media/main/close.png";
+        }
+
+    }
+
+  </script>
+
+</html>
