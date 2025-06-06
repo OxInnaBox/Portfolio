@@ -1,277 +1,279 @@
 <html>
 
   <head>
-
-    <script src="node_modules/gridstack/dist/gridstack-all.js"></script>
-    <link href="node_modules/gridstack/dist/gridstack.min.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
     <title>Project Gallery</title>
     <style type="text/css">
+        /*Grid*/
+        @media {
+            .gallerygrid {
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                column-gap: 20px;
+                row-gap: 20px;
+            }
+            .seemore {
+                position: absolute;
+                background-color: black;
+                border-radius: 8px;
+                padding: 5px;
+                transform: translateY(-40px) translateX(15px);
+            }
+            .seemore:hover {
+                opacity: 80%;
+            }
+            .seemoretext {
+                font-family: "Playpen Sans";
+                font-size: 12px;
+                color: white;
+                text-decoration: none;
+                background: none;
+                border: none;
+                padding: 0;
+            }
+            .seemoretext:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            .griditem {
+                border-radius: 20px;
+                background-color: rgb(122, 122, 122);
+            }
+            .thumbnail {
+                width: 100%;
+                border-radius: 15px;
+            }
+        }
 
-      /*Gridstack*/
-      @media {
-        .grid-stack-item-content {
-          border-radius: 20px;
-          background-color: rgb(122, 122, 122);
-          background-size: cover;
-          background-position: center;
+        /*Big divs*/
+        @media {
+            body {
+                background-color: #f3f3f3;
+                margin: 0;
+            }
+            header {
+                background-color: rgb(46, 46, 46);
+                padding: 25px;
+                margin-bottom: 40px;
+            }
+            .mainmargin {
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+            footer {
+                background-color: rgb(46, 46, 46);
+                padding: 25px;
+                margin-top: 40px;
+            }
         }
-        .ui-resizable-handle {
-          background-color: rgb(255, 255, 255);
-          border-radius: 20px;
-        }
-        .seemore {
-          left: 15;
-          bottom: 15;
-          position: absolute;
-          background-color: black;
-          border-radius: 8px;
-          padding: 5px;
-        }
-        .seemore:hover {
-          opacity: 80%;
-        }
-        .seemoretext {
-          font-family: "Playpen Sans";
-          font-size: 12px;
-          color: white;
-          text-decoration: none;
-          background: none;
-          border: none;
-          padding: 0;
-        }
-        .seemoretext:hover {
-          cursor: pointer;
-          text-decoration: underline;
-        }
-      }
 
-      /*Grid Items*/
-      @media {
-        #project1 {
-          background-image: url("media/projects/project1/thumbnail.png");
+        /*Header*/
+        @media {
+            .logodiv {
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 20px;
+            }
+            .logo {
+                width: 8%;
+            }
+            .logo:hover {
+                cursor: pointer;
+            }
+            .navdiv {
+                display: flex;
+                justify-content: space-between;
+                padding-left: 30%;
+                padding-right: 30%;
+            }
+            .navtext {
+                font-family: "Playpen Sans";
+                font-size: 18px;
+                color: rgb(146, 146, 146);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: white;
+            }
+            #mobilenav {
+                display: none;
+            }
         }
-        #project2 {
-          background-image: url("media/projects/project2/thumbnail.png");
-        }
-        #project3 {
-          background-image: url("media/projects/project3/thumbnail.png");
-        }
-        #project4 {
-          background-image: url("media/projects/project4/thumbnail.png");
-        }
-        #project5 {
-          background-image: url("media/projects/project5/thumbnail.png");
-        }
-      }
 
-      /*Big divs*/
-      @media {
-        body {
-          background-color: #f3f3f3;
-          margin: 0;
+        /*Footer*/
+        @media {
+            .footerflex  {
+                display: flex;
+                justify-content: space-between;
+            }
+            .socialsdiv {
+                display: flex;
+                justify-content: space-between;
+                width: 20%;
+            }
+            .socials {
+                height: 30px;
+                width: 30px;
+            }
+            .footerlogo {
+                width: 10%;
+            }
         }
-        header {
-          background-color: rgb(46, 46, 46);
-          padding: 25px;
-          margin-bottom: 40px;
-        }
-        .mainmargin {
-          margin-left: 10%;
-          margin-right: 10%;
-        }
-        footer {
-          background-color: rgb(46, 46, 46);
-          padding: 25px;
-          margin-top: 40px;
-        }
-      }
 
-      /*Header*/
-      @media {
-        .logodiv {
-          display: flex;
-          justify-content: space-around;
-          margin-bottom: 20px;
+        /*Popup*/
+        @media {
+            .popup {
+                opacity: 0;
+                background-color: rgba(0, 0, 0, .7);
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                transition: all 0.3s ease-in-out;
+                z-index: -1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow-y: scroll;
+            }
+            .popup.open {
+                opacity: 100;
+                z-index: 999;
+            }
+            .innerpopup {
+                background-color: white;
+                border-radius: 10px;
+                padding: 25px;
+                width: 900px;
+                margin-top: 400px;
+                margin-bottom: 50px;
+            }
+            .close {
+                background-color: black;
+                border-radius: 8px;
+                padding: 5px;
+                width: 40px;
+                display: flex;
+                justify-content: center;
+            }
+            .closetext {
+                font-family: "Playpen Sans";
+                font-size: 15px;
+                color: white;
+                text-decoration: none;
+                background: none;
+                border: none;
+                padding: 0;
+            }
+            .closetext:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            .pophead {
+                display: flex;
+                justify-content: space-between;
+            }
+            #title {
+                font-family: "Playpen Sans";
+                font-size: 20px;
+                font-weight: bolder;
+                margin: 0;
+            }
+            .popflex {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+            #description {
+                font-family: "Playpen Sans";
+                font-size: 15px;
+                width: 45%;
+            }
+            .popgrid {
+                display: grid;
+                column-gap: 10px;
+                row-gap: 10px;
+                width: 50%;
+                column-count: 3;
+                grid-template-columns: auto auto auto;
+            }
+            #popmainart {
+                width: 100%;
+                margin-top: 20px;
+                border-radius: 10px;
+            }
+            .popgallery {
+                width: 100%;
+                border-radius: 10px;
+            }
         }
-        .logo {
-          width: 8%;
-        }
-        .logo:hover {
-          cursor: pointer;
-        }
-        .navdiv {
-          display: flex;
-          justify-content: space-between;
-          padding-left: 30%;
-          padding-right: 30%;
-        }
-        .navtext {
-          font-family: "Playpen Sans";
-          font-size: 18px;
-          color: rgb(146, 146, 146);
-          text-decoration: none;
-        }
-        a:hover {
-          text-decoration: underline;
-          color: white;
-        }
-      }
 
-      /*Footer*/
-      @media {
-        .footerflex  {
-          display: flex;
-          justify-content: space-between;
+        /*Mobile Nav*/
+        @media {
+            .mobilelogo {
+                width: 20%;
+            }
         }
-        .socialsdiv {
-          display: flex;
-          justify-content: space-between;
-          width: 20%;
-        }
-        .socials {
-          height: 30px;
-          width: 30px;
-        }
-        .footerlogo {
-          width: 10%;
-        }
-      }
 
-      /*Popup*/
-      @media {
-        .popup {
-          opacity: 0;
-          background-color: rgba(0, 0, 0, .7);
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          transition: all 0.3s ease-in-out;
-          z-index: -1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow-y: scroll;
+        /*Responsive*/
+        @media (max-width: 800px) {
+            .innerpopup {
+                margin-top: 1500px;
+            }
+            .footerlogo {
+                width: 30%;
+                margin-bottom: 20px;
+            }
+            .socialsdiv {
+                width: 70%;
+            }
+            .footerflex {
+                display: block;
+            }
+            .socials {
+                height: 40px;
+                width: 40px;
+            }
+            .popgrid {
+                grid-template-columns: auto auto;
+                width: 100%;
+                margin-top: 20px;
+            }
+            #description {
+                width: 100%;
+            }
+            .popflex {
+                display: block;
+            }
+            .navdiv {
+                padding-left: 0%;
+                padding-right: 0%;
+            }
+            #pcnav {
+                display: none;
+            }
+            .gallerygrid {
+                grid-template-columns: auto auto;
+            }
         }
-        .popup.open {
-          opacity: 100;
-          z-index: 999;
-        }
-        .innerpopup {
-          background-color: white;
-          border-radius: 10px;
-          padding: 25px;
-          width: 900px;
-          margin-top: 290px;
-          margin-bottom: 50px;
-        }
-        .close {
-          background-color: black;
-          border-radius: 8px;
-          padding: 5px;
-          width: 40px;
-          display: flex;
-          justify-content: center;
-        }
-        .closetext {
-          font-family: "Playpen Sans";
-          font-size: 15px;
-          color: white;
-          text-decoration: none;
-          background: none;
-          border: none;
-          padding: 0;
-        }
-        .closetext:hover {
-          cursor: pointer;
-          text-decoration: underline;
-        }
-        .pophead {
-          display: flex;
-          justify-content: space-between;
-        }
-        #title {
-          font-family: "Playpen Sans";
-          font-size: 20px;
-          font-weight: bolder;
-          margin: 0;
-        }
-        .popflex {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 20px;
-        }
-        #description {
-          font-family: "Playpen Sans";
-          font-size: 15px;
-          width: 45%;
-        }
-        .popgrid {
-          display: grid;
-          column-gap: 10px;
-          row-gap: 10px;
-          width: 50%;
-          column-count: 3;
-          grid-template-columns: auto auto auto;
-        }
-        #popmainart {
-          width: 100%;
-          margin-top: 20px;
-          border-radius: 10px;
-        }
-        .popgallery {
-          width: 100%;
-          border-radius: 10px;
-        }
-      }
 
-      @media only screen and (max-width: 800px) {
-        .footerlogo {
-          width: 50%;
-          margin-bottom: 20px;
+        @media (max-width: 500px) {
+            .innerpopup {
+                margin-top: 600px;
+            }
+            .socials {
+                height: 30px;
+                width: 30px;
+            }
         }
-        .socialsdiv {
-          width: 70%;
-        }
-        .footerflex {
-          display: block;
-        }
-        .socials {
-          height: 40px;
-          width: 40px;
-        }
-        .popgrid {
-          grid-template-columns: auto auto;
-          width: 100%;
-          margin-top: 20px;
-        }
-        #description {
-          width: 100%;
-        }
-        .popflex {
-          display: block;
-        }
-        .navdiv {
-          padding-left: 0%;
-          padding-right: 0%;
-        }
-        #pcnav {
-          display: none;
-        }
-      }
-
-      @media (max-width: 400px) {
-        .socials {
-          height: 20px;
-          width: 20px;
-        }
-      }
 
     </style>
+
 
   </head>
 
@@ -295,7 +297,13 @@
 
       <div id="mobilenav">
 
-        <div class="navdiv"></div>
+        <div class="navdiv">
+
+            <img src="media/main/logowhite.png" alt="logo" class="mobilelogo">
+
+
+
+        </div>
 
       </div>
 
@@ -305,28 +313,48 @@
       
       <div class="mainmargin">
 
-        <div class="grid-stack">
+        <div class="gallerygrid">
 
-          <div class="grid-stack-item" gs-w="3" gs-h="3">
-            <div class="grid-stack-item-content" id="project1"><div class="seemore"><button class="seemoretext" onclick="openPopup(1)">See More</button></div></div>
-          </div>
+            <div class="griditem">
+                
+                <img src="media/projects/project1/thumbnail.png" alt="thumbnail" class="thumbnail">
+                
+                <div class="seemore"><button class="seemoretext" onclick="openPopup(1)">See More</button></div>
+            
+            </div>
 
-          <div class="grid-stack-item" gs-w="3" gs-h="3">
-            <div class="grid-stack-item-content" id="project2"><div class="seemore"><button class="seemoretext" onclick="openPopup(2)">See More</button></div></div>
-          </div>
+            <div class="griditem">
+                
+                <img src="media/projects/project2/thumbnail.png" alt="thumbnail" class="thumbnail">
+                
+                <div class="seemore"><button class="seemoretext" onclick="openPopup(2)">See More</button></div>
+            
+            </div>
 
-          <div class="grid-stack-item" gs-w="3" gs-h="3">
-            <div class="grid-stack-item-content" id="project3"><div class="seemore"><button class="seemoretext" onclick="openPopup(3)">See More</button></div></div>
-          </div>
+            <div class="griditem">
+                
+                <img src="media/projects/project3/thumbnail.png" alt="thumbnail" class="thumbnail">
+                
+                <div class="seemore"><button class="seemoretext" onclick="openPopup(3)">See More</button></div>
+            
+            </div>
 
-          <div class="grid-stack-item" gs-w="3" gs-h="3">
-            <div class="grid-stack-item-content" id="project4"><div class="seemore"><button class="seemoretext" onclick="openPopup(4)">See More</button></div></div>
-          </div>
+            <div class="griditem">
+                
+                <img src="media/projects/project4/thumbnail.png" alt="thumbnail" class="thumbnail">
+                
+                <div class="seemore"><button class="seemoretext" onclick="openPopup(4)">See More</button></div>
+            
+            </div>
+            
+            <div class="griditem">
+                
+                <img src="media/projects/project5/thumbnail.png" alt="thumbnail" class="thumbnail">
+                
+                <div class="seemore"><button class="seemoretext" onclick="openPopup(5)">See More</button></div>
+            
+            </div>
 
-          <div class="grid-stack-item" gs-w="3" gs-h="3">
-            <div class="grid-stack-item-content" id="project5"><div class="seemore"><button class="seemoretext" onclick="openPopup(5)">See More</button></div></div>
-          </div>
-          
         </div>
 
       </div>
@@ -403,15 +431,6 @@
     const gallery5 = document.getElementById("gallery5");
     const gallery6 = document.getElementById("gallery6");
 
-    var grid = GridStack.init({
-      column: 6,
-      cellHeight: 100,
-      columnOpts: {
-        columnWidth: 100,
-        columnMax: 12,
-        layout: 'none',
-      },
-    })
     function openPopup(projectnumber) {
       document.getElementById("popup").classList.add("open");
 
