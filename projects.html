@@ -218,6 +218,16 @@
             .mobilelogo {
                 width: 20%;
             }
+            #menuicon {
+                width: 10%;
+            }
+            .mobilemenu {
+                display: none;
+            }
+            .mobilemenu.open {
+                display: block;
+                margin-top: 10px;
+            }
         }
 
         /*Responsive*/
@@ -257,6 +267,9 @@
             #pcnav {
                 display: none;
             }
+            #mobilenav {
+                display: block;
+            }
             .gallerygrid {
                 grid-template-columns: auto auto;
             }
@@ -281,139 +294,151 @@
     
     <header>
 
-      <div id="pcnav">
+        <div id="pcnav">
 
-        <div class="logodiv"><img src="media/main/logowhite.png" alt="logo" class="logo" onclick="window.location.href = 'index.html'"></div>
+            <div class="logodiv"><img src="media/main/logowhite.png" alt="logo" class="logo" onclick="window.location.href = 'index.html'"></div>
 
-        <div class="navdiv">
-          
-          <a href="index.html" class="navtext">Home</a>
-          <a href="projects.html" class="navtext">Gallery</a>
-          <a href="projects.html" class="navtext">About Me</a>
+            <div class="navdiv">
+            
+                <a href="index.html" class="navtext">Home</a>
+                <a href="projects.html" class="navtext">Gallery</a>
+                <a href="projects.html" class="navtext">About Me</a>
 
-        </div>
-
-      </div>
-
-      <div id="mobilenav">
-
-        <div class="navdiv">
-
-            <img src="media/main/logowhite.png" alt="logo" class="mobilelogo">
-
-
+            </div>
 
         </div>
 
-      </div>
+        <div id="mobilenav">
+
+            <div class="navdiv">
+
+                <img src="media/main/logowhite.png" alt="logo" class="mobilelogo">
+
+                <img src="media/main/burger.png" alt="menu" id="menuicon" onclick="toggleMenu()">
+
+            </div>
+
+            <div id="mobilemenu" class="mobilemenu">
+
+                <div class="navdiv">
+
+                    <a href="index.html" class="navtext">Home</a>
+                    <a href="projects.html" class="navtext">Gallery</a>
+                    <a href="projects.html" class="navtext">About Me</a>
+
+                </div>
+                
+            </div>
+        
+        </div>
 
     </header>
 
     <main>
-      
-      <div class="mainmargin">
-
-        <div class="gallerygrid">
-
-            <div class="griditem">
-                
-                <img src="media/projects/project1/thumbnail.png" alt="thumbnail" class="thumbnail">
-                
-                <div class="seemore"><button class="seemoretext" onclick="openPopup(1)">See More</button></div>
-            
-            </div>
-
-            <div class="griditem">
-                
-                <img src="media/projects/project2/thumbnail.png" alt="thumbnail" class="thumbnail">
-                
-                <div class="seemore"><button class="seemoretext" onclick="openPopup(2)">See More</button></div>
-            
-            </div>
-
-            <div class="griditem">
-                
-                <img src="media/projects/project3/thumbnail.png" alt="thumbnail" class="thumbnail">
-                
-                <div class="seemore"><button class="seemoretext" onclick="openPopup(3)">See More</button></div>
-            
-            </div>
-
-            <div class="griditem">
-                
-                <img src="media/projects/project4/thumbnail.png" alt="thumbnail" class="thumbnail">
-                
-                <div class="seemore"><button class="seemoretext" onclick="openPopup(4)">See More</button></div>
-            
-            </div>
-            
-            <div class="griditem">
-                
-                <img src="media/projects/project5/thumbnail.png" alt="thumbnail" class="thumbnail">
-                
-                <div class="seemore"><button class="seemoretext" onclick="openPopup(5)">See More</button></div>
-            
-            </div>
-
-        </div>
-
-      </div>
-
-      <div id="popup" class="popup">
         
-        <div class="innerpopup">
+        <div class="mainmargin">
 
+            <div class="gallerygrid">
 
-          <div class="pophead">
+                <div class="griditem">
+                    
+                    <img src="media/projects/project1/thumbnail.png" alt="thumbnail" class="thumbnail">
+                    
+                    <div class="seemore"><button class="seemoretext" onclick="openPopup(1)">See More</button></div>
+                
+                </div>
 
-            <p id="title">Project Popup 1</p>
+                <div class="griditem">
+                    
+                    <img src="media/projects/project2/thumbnail.png" alt="thumbnail" class="thumbnail">
+                    
+                    <div class="seemore"><button class="seemoretext" onclick="openPopup(2)">See More</button></div>
+                
+                </div>
 
-            <div class="close"><button class="closetext" onclick="closePopup()">Close</button></div>
+                <div class="griditem">
+                    
+                    <img src="media/projects/project3/thumbnail.png" alt="thumbnail" class="thumbnail">
+                    
+                    <div class="seemore"><button class="seemoretext" onclick="openPopup(3)">See More</button></div>
+                
+                </div>
 
-          </div>
-
-          <div class="popcontent">
-
-            <img src="media/projects/project1/mainart.png" alt="mainart" id="popmainart">
-
-            <div class="popflex">
-
-              <div id="description">Project 1 description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-
-              <div class="popgrid">
-                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery1">
-                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery2">
-                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery3">
-                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery4">
-                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery5">
-                <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery6">
-              </div>
+                <div class="griditem">
+                    
+                    <img src="media/projects/project4/thumbnail.png" alt="thumbnail" class="thumbnail">
+                    
+                    <div class="seemore"><button class="seemoretext" onclick="openPopup(4)">See More</button></div>
+                
+                </div>
+                
+                <div class="griditem">
+                    
+                    <img src="media/projects/project5/thumbnail.png" alt="thumbnail" class="thumbnail">
+                    
+                    <div class="seemore"><button class="seemoretext" onclick="openPopup(5)">See More</button></div>
+                
+                </div>
 
             </div>
 
-          </div>
-
         </div>
 
-      </div>
+        <div id="popup" class="popup">
+            
+            <div class="innerpopup">
+
+
+            <div class="pophead">
+
+                <p id="title">Project Popup 1</p>
+
+                <div class="close"><button class="closetext" onclick="closePopup()">Close</button></div>
+
+            </div>
+
+            <div class="popcontent">
+
+                <img src="media/projects/project1/mainart.png" alt="mainart" id="popmainart">
+
+                <div class="popflex">
+
+                <div id="description">Project 1 description text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+
+                <div class="popgrid">
+                    <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery1">
+                    <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery2">
+                    <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery3">
+                    <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery4">
+                    <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery5">
+                    <img src="media/projects/project1/artwork.png" alt="artwork" class="popgallery" id="gallery6">
+                </div>
+
+                </div>
+
+            </div>
+
+            </div>
+
+        </div>
 
     </main>
 
     <footer>
 
-      <div class="footerflex">
-        
-        <img src="media/main/logowhite.png" alt="logo" class="footerlogo">
+        <div class="footerflex">
+            
+            <img src="media/main/logowhite.png" alt="logo" class="footerlogo">
 
-        <div class="socialsdiv">
-          <img src="media/socials/artstation.png" alt="artstation" class="socials">
-          <img src="media/socials/instagram.png" alt="instagram" class="socials">
-          <img src="media/socials/youtube.png" alt="youtube" class="socials">
-          <img src="media/socials/linkedin.png" alt="linkedin" class="socials">
-          <img src="media/socials/twitter.png" alt="twitter" class="socials">
+            <div class="socialsdiv">
+                <img src="media/socials/artstation.png" alt="artstation" class="socials">
+                <img src="media/socials/instagram.png" alt="instagram" class="socials">
+                <img src="media/socials/youtube.png" alt="youtube" class="socials">
+                <img src="media/socials/linkedin.png" alt="linkedin" class="socials">
+                <img src="media/socials/twitter.png" alt="twitter" class="socials">
+            </div>
+
         </div>
-
-      </div>
 
     </footer>
 
@@ -430,6 +455,7 @@
     const gallery4 = document.getElementById("gallery4");
     const gallery5 = document.getElementById("gallery5");
     const gallery6 = document.getElementById("gallery6");
+    let openmenu = false
 
     function openPopup(projectnumber) {
       document.getElementById("popup").classList.add("open");
@@ -494,6 +520,20 @@
       document.getElementById("popup").classList.remove("open");
     }
     
+    function toggleMenu() {
+
+        if (openmenu) {
+            openmenu = false;
+            document.getElementById("mobilemenu").classList.remove("open");
+            document.getElementById("menuicon").src="media/main/burger.png";
+        }
+        else {
+            openmenu = true;
+            document.getElementById("mobilemenu").classList.add("open");
+            document.getElementById("menuicon").src="media/main/close.png";
+        }
+
+    }
 
 
   </script>

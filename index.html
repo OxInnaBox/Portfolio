@@ -2,6 +2,7 @@
 
   <head>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
@@ -60,6 +61,9 @@
                 text-decoration: underline;
                 color: white;
             }
+            #mobilenav {
+                display: none;
+            }
         }
 
         /*Footer*/
@@ -82,9 +86,26 @@
             }
         }
 
+        /*Mobile Nav*/
+        @media {
+            .mobilelogo {
+                width: 20%;
+            }
+            #menuicon {
+                width: 10%;
+            }
+            .mobilemenu {
+                display: none;
+            }
+            .mobilemenu.open {
+                display: block;
+                margin-top: 10px;
+            }
+        }
+
         @media (max-width: 800px) {
             .footerlogo {
-                width: 50%;
+                width: 30%;
                 margin-bottom: 20px;
             }
             .socialsdiv {
@@ -97,12 +118,22 @@
                 height: 40px;
                 width: 40px;
             }
+            .navdiv {
+                padding-left: 0%;
+                padding-right: 0%;
+            }
+            #pcnav {
+                display: none;
+            }
+            #mobilenav {
+                display: block;
+            }
         }
 
         @media (max-width: 400px) {
             .socials {
-                height: 20px;
-                width: 20px;
+                height: 30px;
+                width: 30px;
             }
         }
 
@@ -114,14 +145,42 @@
     
     <header>
 
-        <div class="logodiv"><img src="media/main/logowhite.png" alt="logo" class="logo" onclick="window.location.href = 'index.html'"></div>
+        <div id="pcnav">
 
-        <div class="navdiv">
+            <div class="logodiv"><img src="media/main/logowhite.png" alt="logo" class="logo" onclick="window.location.href = 'index.html'"></div>
+
+            <div class="navdiv">
             
-            <a href="index.html" class="navtext">Home</a>
-            <a href="projects.html" class="navtext">Gallery</a>
-            <a href="projects.html" class="navtext">About Me</a>
+                <a href="index.html" class="navtext">Home</a>
+                <a href="projects.html" class="navtext">Gallery</a>
+                <a href="projects.html" class="navtext">About Me</a>
 
+            </div>
+
+        </div>
+
+        <div id="mobilenav">
+
+            <div class="navdiv">
+
+                <img src="media/main/logowhite.png" alt="logo" class="mobilelogo">
+
+                <img src="media/main/burger.png" alt="menu" id="menuicon" onclick="toggleMenu()">
+
+            </div>
+
+            <div id="mobilemenu" class="mobilemenu">
+
+                <div class="navdiv">
+
+                    <a href="index.html" class="navtext">Home</a>
+                    <a href="projects.html" class="navtext">Gallery</a>
+                    <a href="projects.html" class="navtext">About Me</a>
+
+                </div>
+                
+            </div>
+        
         </div>
 
     </header>
@@ -151,5 +210,26 @@
     </footer>
 
   </body>
+
+  <script type="text/javascript">
+
+    let openmenu = false;
+
+    function toggleMenu() {
+
+        if (openmenu) {
+            openmenu = false;
+            document.getElementById("mobilemenu").classList.remove("open");
+            document.getElementById("menuicon").src="media/main/burger.png";
+        }
+        else {
+            openmenu = true;
+            document.getElementById("mobilemenu").classList.add("open");
+            document.getElementById("menuicon").src="media/main/close.png";
+        }
+
+    }
+
+  </script>
 
 </html>
